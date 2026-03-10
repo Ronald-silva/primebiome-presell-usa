@@ -6,11 +6,21 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
   background-color: #ffffff;
   color: #1a1a1a;
   min-width: 320px;
+  overflow-x: hidden;
 }
 
 @keyframes pulse-cta {
@@ -32,7 +42,6 @@ body {
 }
 
 /* ── Header ─────────────────────────────────────────────────── */
-.header-secondary,
 .header-right {
   display: flex;
   align-items: center;
@@ -40,16 +49,38 @@ body {
 }
 
 @media (max-width: 480px) {
-  .header-secondary { display: none; }
-  .header-right     { display: none; }
+  .header-right { display: none; }
 }
 
-/* ── Hero meta bar: hide pipe separators when wrapping ───────── */
-.meta-sep {
-  color: #ddd;
-}
+/* ── Hero meta bar ───────────────────────────────────────────── */
+.meta-sep { color: #ddd; }
+
 @media (max-width: 480px) {
   .meta-sep { display: none; }
+
+  .hero-tag span {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ── CTA product+rating: stack on very small screens ─────────── */
+.product-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 360px) {
+  .product-rating {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .product-rating div {
+    text-align: center;
+    align-items: center;
+  }
 }
 
 /* ── CTA button ─────────────────────────────────────────────── */
@@ -57,9 +88,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   border-radius: 50px;
-  padding: 18px 32px;
+  padding: 18px 28px;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -69,8 +100,8 @@ body {
   .cta-btn {
     width: 100%;
     border-radius: 16px;
-    padding: 16px 20px;
-    font-size: 0.9rem !important;
+    padding: 16px 16px;
+    font-size: 0.88rem !important;
     gap: 8px;
   }
 }
@@ -85,7 +116,7 @@ body {
   padding: 8px 18px;
   font-size: 12px;
   font-weight: 600;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 @media (max-width: 600px) {
@@ -94,6 +125,18 @@ body {
     width: 100%;
     border-radius: 12px;
     text-align: center;
-    padding: 12px 16px;
+    padding: 12px 14px;
+    font-size: 11px;
+  }
+}
+
+/* ── Guarantee box ──────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .guarantee-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .guarantee-box div {
+    text-align: center;
   }
 }
