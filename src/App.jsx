@@ -104,7 +104,7 @@ function ArticleBody() {
       {/* Product image */}
       <figure style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.1)', margin: '32px 0', background: 'linear-gradient(135deg, #fce8e8 0%, #fdf4f4 100%)' }}>
         <img
-          src="/primebiome.webp"
+          src="/primebiome.png"
           alt="PrimeBiome — Skin & Gut Essential Probiotics"
           style={{ width: '100%', display: 'block', objectFit: 'cover' }}
         />
@@ -361,13 +361,19 @@ function Footer() {
 
         {/* Policy links */}
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, marginBottom: 24 }}>
-          {['Privacy Policy', 'Terms of Service', 'Affiliate Disclosure', 'Contact Us', 'Unsubscribe'].map((link) => (
+          {[
+            { label: 'Privacy Policy', href: '#' },
+            { label: 'Terms of Service', href: '#' },
+            { label: 'Affiliate Disclosure', href: '#' },
+            { label: 'Contact Us', href: 'mailto:support@drrpros.com' },
+            { label: 'Unsubscribe', href: 'mailto:support@drrpros.com?subject=Unsubscribe' },
+          ].map(({ label, href }) => (
             <a
-              key={link}
-              href="#"
+              key={label}
+              href={href}
               style={{ color: '#666', textDecoration: 'underline', fontSize: 12, fontWeight: 500 }}
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>
